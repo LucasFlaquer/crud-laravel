@@ -36,18 +36,29 @@ class TestController extends Controller
         
         return redirect()->route('users.listAll');
     }
-    public function formEditUser() 
+    public function formEditUser(User $user) 
     {
-        return view('addUser');
+        return view('editUser', [
+            'user'=>$user
+        ]);
     }
-    public function edit() 
-    {
-        $user = new User();
+    public function edit(User $user, Request $req) 
+    {   
         $user->name = $req->name;
+
+        if(filter_var($req->email, FILTER_VALIDATE_EMAIL)) {
+            $user->email = $req->email;
+        }
         $user->email = $req->email;
-        $user->password = Hash::make($req->password);
+        if(!empty($req->password)) {
+            $user->password = Hash::make($req->password);
+        }
         $user->save();
         
+        return redirect()->route('users.listAll');
+    }
+    public function destroy(User $user ) {
+        $user->delete();
         return redirect()->route('users.listAll');
     }
 }

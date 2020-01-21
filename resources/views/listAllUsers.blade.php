@@ -24,8 +24,10 @@
           <td>{{ $user->email }}</td>
           <td>
             <a href="">Ver Usuário</a>
-            <form action="" method="POST">
-              <input type="hidden" name="user" value="">
+            <form action="{{route('users.destroy',['user'=>$user->id])}}" method="POST">
+              @csrf
+              @method('delete')
+              <input type="hidden" name="user" value="{{$user->id}}">
               <input type="submit" value="remover">
             </form> 
           </td>
