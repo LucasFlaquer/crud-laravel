@@ -7,8 +7,8 @@
   <title>Document</title>
 </head>
 <body>
-<form action="{{ route('users.store') }}" method="POST">
-  @csrf
+  <form action="{{ route('user.store') }}" method="POST">
+    @csrf
     <label for="">Nome de Usuário</label>
     <input type="text" name="name">
     <label for="">E-mail</label>
