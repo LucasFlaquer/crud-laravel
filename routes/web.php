@@ -18,3 +18,7 @@ Route::resource('usuarios', 'Form\\TestController')
 
 //Route::get('/listagem-usuario', 'UserController@listUser');
 
+
+Route::get('/posts', 'PostController@showForm');
+Route::post('/posts/debug', 'PostController@debug')->name('debug');
+
