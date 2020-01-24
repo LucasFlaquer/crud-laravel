@@ -22,3 +22,30 @@ Route::resource('usuarios', 'Form\\TestController')
 Route::get('/posts', 'PostController@showForm');
 Route::post('/posts/debug', 'PostController@debug')->name('debug');
 
+// Http verbs supported by laravel router
+// Route::get($uri, $callback);
+// Route::post($uri, $callback);
+// Route::put($uri, $callback);
+// Route::patch($uri, $callback);
+// Route::delete($uri, $callback);
+// Route::options($uri, $callback);
+
+#multiverbs route
+/**
+ * Route::match(['get', 'post'], '/', function () {
+ * //
+ * });
+ * 
+ * Route::any('/', function () {
+ *  //
+ * });
+ * 
+ */
+
+/*
+fallback
+Route::fallback(function () {
+    //
+});
+
+*/
